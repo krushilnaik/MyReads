@@ -13,7 +13,7 @@ class SearchPage extends React.Component {
 		return (
 			<div className="search-books">
 				<div className="search-books-bar">
-					<button className="close-search">
+					<button className="close-search" onClick={() => {window.location.href = '/'}}>
 						Close
 					</button>
 					<div className="search-books-input-wrapper">
