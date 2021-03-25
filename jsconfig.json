@@ -1,0 +1,13 @@
+{
+	"compilerOptions": {
+		"checkJs": true,
+		"allowUnusedLabels": false,
+		"allowUnreachableCode": false,
+		"jsx": "react",
+		"noUnusedParameters": true,
+		"noUnusedLocals": true,
+		"moduleResolution": "node",
+		"target": "es2018"
+	},
+	"exclude": ["node_modules"]
+}
