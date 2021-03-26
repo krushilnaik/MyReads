@@ -19,7 +19,7 @@ class BooksApp extends React.Component {
 	render() {
 		return (
 			<div className="app">
-				{window.location.href.endsWith('/search') ? <SearchPage/> : <HomePage/>}
+				{window.location.href.endsWith('/search') ? <SearchPage data={this.props.data}/> : <HomePage data={this.props.data}/>}
 			</div>
 		);
 	}
