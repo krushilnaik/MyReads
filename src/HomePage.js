@@ -15,6 +15,9 @@ class HomePage extends React.Component {
 						<Bookshelf shelf='Read' books={this.props.books.filter(book => book.shelf === 'read')}></Bookshelf>
 					</div>
 				</div>
+				<div className="open-search">
+					<button onClick={() => {window.location.replace('/search')}}>Add a book</button>
+				</div>
 			</div>
 		);
 	}
