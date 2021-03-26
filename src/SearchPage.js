@@ -1,12 +1,24 @@
 import React from 'react';
+import * as BooksAPI from './BooksAPI';
+import Book from './Book';
 
 class SearchPage extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {results: []};
+	}
+
 	/**
 	 * 
 	 * @param {React.ChangeEvent<HTMLInputElement>} event - event caller
 	 */
 	handleChange(event) {
-		// 
+		if (event.target.value) {
+			BooksAPI.search(event.target.value)
+				.then(
+					data => this.setState({results: data})
+				);
+		}
 	}
 
 	render() {
@@ -29,7 +41,21 @@ class SearchPage extends React.Component {
 					</div>
 				</div>
 				<div className="search-books-results">
-					<ol className="books-grid" />
+					<ol className="books-grid">
+						{
+							this.state.results.length !== 0
+								? this.state.results.map(
+									book => <li>
+										<Book
+											id={book.id}
+											title={book.title}
+											author={book.hasOwnProperty('authors') ? book.authors[0] : book.publisher}
+											cover={book.imageLinks.thumbnail}
+										></Book>
+									</li>
+								) : null
+						}
+					</ol>
 				</div>
 			</div>
 		);
