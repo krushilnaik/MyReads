@@ -8,6 +8,7 @@ class Book extends React.Component {
 	 */
 	moveToShelf(newShelf) {
 		BooksAPI.update({id: this.props.id}, newShelf);
+		window.location.reload();
 	}
 
 	render() {

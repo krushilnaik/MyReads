@@ -14,17 +14,18 @@ class Bookshelf extends React.Component {
 				<h2 className="bookshelf-title">{this.props.shelf}</h2>
 				<div className="bookshelf-books">
 					<ol className="books-grid">
-						{this.props.books.map(
-							book => 
-							<li>
-								<Book
-									id={book.id}
-									title={book.title}
-									author={book.authors[0]}
-									cover={book.imageLinks.thumbnail}
-								></Book>
-							</li>
-						)}
+						{
+							this.props.books.map(
+								book => <li key={book.id}>
+									<Book
+										id={book.id}
+										title={book.title}
+										author={book.authors[0]}
+										cover={book.imageLinks.thumbnail}
+									></Book>
+								</li>
+							)
+						}
 					</ol>
 				</div>
 			</div>

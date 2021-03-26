@@ -45,7 +45,7 @@ class SearchPage extends React.Component {
 						{
 							this.state.results.length !== 0
 								? this.state.results.map(
-									book => <li>
+									book => <li key={book.id}>
 										<Book
 											id={book.id}
 											title={book.title}
