@@ -22,6 +22,7 @@ class Bookshelf extends React.Component {
 										title={book.title}
 										author={book.authors[0]}
 										cover={book.imageLinks.thumbnail}
+										shelf={book.shelf}
 									></Book>
 								</li>
 							)

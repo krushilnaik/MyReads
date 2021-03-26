@@ -4,11 +4,12 @@ import * as BooksAPI from './BooksAPI';
 class Book extends React.Component {
 	/**
 	 * Move this book to a new shelf
-	 * @param {string} newShelf - must be either "wantToRead", "currentlyReading", or "read"
+	 * @param {React.ChangeEvent<HTMLSelectElement>} event - must be either "wantToRead", "currentlyReading", or "read"
 	 */
-	moveToShelf(newShelf) {
-		BooksAPI.update({id: this.props.id}, newShelf);
-		window.location.reload();
+	moveToShelf(event) {
+		event.target.selectedIndex = Array.from(event.target.options).map(element => element.value).indexOf(event.target.value);
+		BooksAPI.update({id: this.props.id}, event.target.value)
+			.then(_ => window.location.reload());
 	}
 
 	render() {
@@ -20,10 +21,8 @@ class Book extends React.Component {
 						style={{ width: 128, height: 193, backgroundImage: `url(${this.props.cover})` }}
 					/>
 					<div className="book-shelf-changer">
-						<select onChange={(event) => {this.moveToShelf(event.target.value);}}>
-							<option value="move">
-								Move to...
-							</option>
+						<select defaultValue={this.props.shelf} onChange={(event) => {this.moveToShelf(event);}}>
+							<option value="move" disabled>Move to...</option>
 							<option value="currentlyReading">Currently Reading</option>
 							<option value="wantToRead">Want to Read</option>
 							<option value="read">Read</option>
