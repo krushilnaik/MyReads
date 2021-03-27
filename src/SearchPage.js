@@ -13,12 +13,15 @@ class SearchPage extends React.Component {
 	 * @param {React.ChangeEvent<HTMLInputElement>} event - event caller
 	 */
 	handleChange(event) {
-		if (event.target.value) {
+		const query = event.target.value;
+		if (query) {
 			BooksAPI.search(event.target.value)
 				.then(data => {
 					this.setState({results: (Array.isArray(data) ? data : [])})
 				})
 				.catch(err => console.error(err));
+		} else {
+			this.setState({results: []});
 		}
 	}
 
@@ -31,10 +34,7 @@ class SearchPage extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.books);
-
-		const { results = [] } = this.state;
-		console.log("results", results);
+		const { results } = this.state;
 
 		return (
 			<div className="search-books">
