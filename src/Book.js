@@ -7,10 +7,10 @@ class Book extends React.Component {
 	 * @param {React.ChangeEvent<HTMLSelectElement>} event - must be either "wantToRead", "currentlyReading", or "read"
 	 */
 	moveToShelf(event) {
+		const callback = this.props.callback || (() => {});
 		event.target.selectedIndex = Array.from(event.target.options).map(element => element.value).indexOf(event.target.value);
 		BooksAPI.update({id: this.props.id}, event.target.value)
-			// .then(_ => window.location.reload());
-			.then(() => {this.props.callback();});
+			.then(() => {callback();});
 	}
 
 	render() {
