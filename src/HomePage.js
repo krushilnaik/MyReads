@@ -5,11 +5,10 @@ class HomePage extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {};
 
 		this.updateHomePage = this.updateHomePage.bind(this);
 	}
-	
+
 	updateHomePage() {
 		window.location.reload();
 	}
