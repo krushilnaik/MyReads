@@ -2,6 +2,18 @@ import React from 'react';
 import Bookshelf from './Bookshelf';
 
 class HomePage extends React.Component {
+
+	constructor(props) {
+		super(props);
+		this.state = {};
+
+		this.updateHomePage = this.updateHomePage.bind(this);
+	}
+	
+	updateHomePage() {
+		window.location.reload();
+	}
+
 	render() {
 		return (
 			<div className="list-books">
@@ -10,9 +22,9 @@ class HomePage extends React.Component {
 				</div>
 				<div className="list-books-content">
 					<div>
-						<Bookshelf shelf='Currently Reading' books={this.props.books.filter(book => book.shelf === 'currentlyReading')}></Bookshelf>
-						<Bookshelf shelf='Want to Read' books={this.props.books.filter(book => book.shelf === 'wantToRead')}></Bookshelf>
-						<Bookshelf shelf='Read' books={this.props.books.filter(book => book.shelf === 'read')}></Bookshelf>
+						<Bookshelf callback={this.updateHomePage} shelf='Currently Reading' books={this.props.books.filter(book => book.shelf === 'currentlyReading')}></Bookshelf>
+						<Bookshelf callback={this.updateHomePage} shelf='Want to Read' books={this.props.books.filter(book => book.shelf === 'wantToRead')}></Bookshelf>
+						<Bookshelf callback={this.updateHomePage} shelf='Read' books={this.props.books.filter(book => book.shelf === 'read')}></Bookshelf>
 					</div>
 				</div>
 				<div className="open-search">

@@ -9,7 +9,8 @@ class Book extends React.Component {
 	moveToShelf(event) {
 		event.target.selectedIndex = Array.from(event.target.options).map(element => element.value).indexOf(event.target.value);
 		BooksAPI.update({id: this.props.id}, event.target.value)
-			.then(_ => window.location.reload());
+			// .then(_ => window.location.reload());
+			.then(() => {this.props.callback();});
 	}
 
 	render() {

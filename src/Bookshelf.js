@@ -23,6 +23,7 @@ class Bookshelf extends React.Component {
 										author={book.authors[0]}
 										cover={book.imageLinks.thumbnail}
 										shelf={book.shelf}
+										callback={this.props.callback}
 									></Book>
 								</li>
 							)
