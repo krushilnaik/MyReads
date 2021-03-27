@@ -49,13 +49,13 @@ class SearchPage extends React.Component {
 				<div className="search-books-results">
 					<ol className="books-grid">
 						{
-							results.map(
+							results.filter(book => book.hasOwnProperty('imageLinks')).map(
 								book => <li key={book.id}>
 									<Book
 										id={book.id}
 										title={book.title}
 										author={book.hasOwnProperty('authors') ? book.authors[0] : book.publisher}
-										cover={book.hasOwnProperty('imageLinks') ? book.imageLinks.thumbnail : ''}
+										cover={book.imageLinks.thumbnail}
 										shelf={this.fetchShelf(book.id)}
 									></Book>
 								</li>
