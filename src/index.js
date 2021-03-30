@@ -1,11 +1,16 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import App from './App'
-import './index.css'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
+import './index.css';
 
 import * as BooksAPI from './BooksAPI';
 
-BooksAPI.getAll()
-	.then(data => {
-		ReactDOM.render(<App data={data}/>, document.getElementById('root'))
-	});
+BooksAPI.getAll().then((data) => {
+	ReactDOM.render(
+		<BrowserRouter>
+			<App data={data} />
+		</BrowserRouter>,
+		document.getElementById('root')
+	);
+});
