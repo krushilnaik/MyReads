@@ -1,5 +1,4 @@
 import React from 'react';
-// import * as BooksAPI from './BooksAPI'
 import { Route } from "react-router-dom";
 import './App.css';
 
@@ -11,8 +10,7 @@ class BooksApp extends React.Component {
 		return (
 			<div className="app">
 				<Route exact path='/' render={() => <HomePage books={this.props.data} />} />
-				<Route exact path='/search' render={() => <SearchPage books={this.props.data}/>}></Route>
-				{/* {window.location.href.endsWith('/search') ? <SearchPage books={this.props.data}/> : <HomePage books={this.props.data}/>} */}
+				<Route exact path='/search' render={({ history }) => <SearchPage books={this.props.data} nagivateBack={() => history.push('/')}/>}></Route>
 			</div>
 		);
 	}

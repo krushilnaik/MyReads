@@ -39,7 +39,7 @@ class SearchPage extends React.Component {
 		return (
 			<div className="search-books">
 				<div className="search-books-bar">
-					<button className="close-search" onClick={() => {window.location.href = '/'}}>
+					<button className="close-search" onClick={this.props.nagivateBack}>
 						Close
 					</button>
 					<div className="search-books-input-wrapper">
