@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/aeaeb940-0e18-4556-87f8-c42d62d4d6dd/deploy-status)](https://app.netlify.com/sites/gifted-rosalind-8aa827/deploys)
+
 # MyReads Project
 
 Keep track of books you are or aren't reading and discover new books. Pulled from a very miniscule collection of titles.
